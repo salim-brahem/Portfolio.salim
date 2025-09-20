@@ -1,0 +1,246 @@
+body{
+}
+
+#header {
+    display: none;
+}
+ #socials {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+#socials img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#socials img:hover{
+    transform: scale(1.07);
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    width: 30px;
+
+}
+.socials img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.socials img:hover{
+    transform: scale(1.07);
+}
+
+
+.fullstack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 950px;
+}
+.fullstack h1 {
+    /* tes styles ici */
+    font-family: var(--font-ssfalling);
+    letter-spacing: 12px;
+    margin: 0px;
+    margin-right: -8px;
+}
+.fullstack h1:first-of-type {
+
+    color: var(--text-color);
+        font-size: 11.3vw;
+    line-height: 0.95;
+    margin-bottom: 36px;
+}
+
+.fullstack h1:nth-of-type(2) {
+    -webkit-text-stroke: 1px var(--text-color); /* contour plus fin */
+    color: transparent; /* si tu veux que l'intérieur soit transparent */
+    font-weight: 500;
+    font-size: 13.24vw;
+    line-height: 0.55;
+
+}
+
+.intro {
+
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.intro2 p {
+    font-family: var(--font-body);
+    font-size: 21px;
+    color: var(--text-color);
+    line-height: 1.7;
+    width: 34vw;
+      text-align: justify;
+
+}
+
+.intro2 {
+  position: relative; /* référence pour le positionnement absolu */
+    margin-top: 70px;
+margin-bottom: 9vw;
+}
+#photo1 {
+    display: none;
+}
+
+.intro2 img {
+  width: 46vw;
+  height: auto;
+  position: absolute;
+  right: 0;   /* colle à gauche */
+  top: 30%;  /* centrée verticalement */
+  transform: translateY(-70%); /* ajuste le centrage vertical */
+
+}
+
+/* Écrans moyens (tablettes) */
+@media (max-width: 1024px) {
+  .fullstack {
+    width: 100%;
+    align-items: center; /* centre le texte quand moins de place */
+  }
+.socials {
+    display: none; /* cache les icônes sociales sur tablette */
+  }
+  #header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: -35px;
+}
+
+
+
+  .intro2 p {
+    width: 40%; /* texte prend plus de place en largeur */
+    font-size: 17px;
+    margin-left: 25px;
+  }
+
+  .intro2 img {
+    width: 54%; /* image rétrécie */
+    right: 0;
+    top: 50%;
+    transform: translateY(-80%);
+  }
+}
+
+/* Écrans petits (mobiles) */
+@media (max-width: 768px) {
+
+
+    
+  .intro {
+    flex-direction: column; /* passe en colonne */
+    align-items: center;
+    gap: 40px;
+  }
+#socials {
+    display: none; /* cache les icônes sociales sur mobile */
+  }
+  #header {
+    margin-top: 35px;
+  }
+  .socials {
+    flex-direction: row; /* icônes en ligne sur mobile */
+    justify-content: center;
+    width: 100%;
+  }
+
+  .socials img {
+    width: 24px;
+    height: 24px;
+  }
+ .fullstack h1 {
+        letter-spacing: 10px;
+    }
+
+  .fullstack h1:first-of-type {
+    font-size: 14vw;
+  }
+
+  .fullstack h1:nth-of-type(2) {
+    font-size: 15vw;
+    line-height: 0.35;
+  }
+
+
+  .intro2 p {
+    width: 100%;
+    font-size: 17px;
+    text-align: center;
+     margin: 0;
+margin-top: 5px;
+  }
+
+  .intro2 img {
+    position: static; /* plus d’absolu sur mobile */
+    width: 100%;
+    transform: none;
+    margin-top: 20px;
+  }
+
+#photo2{
+    display: none;
+}
+#photo1 {
+    position: relative;
+    display: block;
+    margin-top: -100px;
+}
+
+}
+@media (max-width: 1440px) {
+
+.intro2 {
+    margin-top: 50px;
+
+}
+
+
+}
+
+@media (max-width: 480px) { 
+
+    .fullstack h1 {
+        letter-spacing: 6px;
+    }
+  .fullstack h1:first-of-type {
+    font-size: 14vw;
+  }
+
+  .fullstack h1:nth-of-type(2) {
+    font-size: 14vw;
+    line-height: 0.35;
+  }
+
+
+  .intro2 p {
+    font-size: 16px;
+    margin-bottom: 17vw;
+
+
+  }
+
+
+
+}

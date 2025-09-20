@@ -1,11 +1,4 @@
-body {
-  cursor: none !important; /* Masque le curseur dans le composant */
-  margin: 0px ;
-}
 
-.rand-container {
-  margin: 0px 9vw; /* margin uniquement pour le contenu du composant */
-}
 #socials {
   display: none;
 }

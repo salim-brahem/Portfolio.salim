@@ -1,0 +1,127 @@
+.about-section {
+  color: #fff;
+  font-family: var(--font-body);
+margin: 0;
+padding: 0;}
+
+
+.title-with-line {
+  position: relative;
+  display: flex;
+  align-items: center; /* centre verticalement le texte et la ligne */
+}
+
+.title-with-line::before {
+  content: '';
+  flex: 1; /* prend tout l’espace disponible avant le texte */
+  height: 1.3px; /* épaisseur du trait */
+  background: #ffffff; /* couleur du trait */
+  margin-right: 70px; /* espace entre le texte et le trait */
+  
+}
+.gradient {
+  margin-left: auto;
+  position: relative;
+  margin-top: -125px;
+  background: var(--gradiant);
+  -webkit-background-clip: text; /* clip le background au texte */
+  -webkit-text-fill-color: transparent; /* rend le texte transparent pour voir le gradient */
+  font-weight: bold;
+    width: fit-content;
+}
+
+.about-section h2 {
+  font-size: 72px;
+  font-weight: 600;
+    font-family: var(--font-ssfalling);
+    letter-spacing: 6px ; 
+  margin-bottom: 40px;
+  background: var(--gradiant);
+  -webkit-background-clip: text; /* clip le background au texte */
+  -webkit-text-fill-color: transparent; /* rend le texte transparent pour voir le gradient */
+}
+
+.about-content {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap; /* responsive : les colonnes passent en stack sur mobile */
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.personal-info {
+  flex: 1;
+  width: 420px;
+}
+
+.personal-info h3 {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 2px;
+  
+}
+
+
+
+.personal-info p {
+  font-size: 18px;
+}
+
+.personal-info a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.description {
+  flex: 2;
+  min-width: 300px;
+  max-width: 656px;
+}
+
+.description p {
+  margin-bottom: 20px;
+  line-height: 1.9;
+  font-size: 21px;
+  text-align: justify;
+}
+
+
+
+@media (max-width: 550px) {
+ .title-with-line {
+    display: none;
+ }
+
+ .gradient {
+    margin-top: 50px;
+    font-size: 5px;
+    margin-bottom: 20px;
+     text-align: center; 
+    margin-left: 0;
+}
+
+.about-section h2 {
+  font-size: 60px;
+  font-weight: 600;
+    font-family: var(--font-ssfalling);
+    letter-spacing: 6px ; 
+  margin-bottom: 30px;
+}
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.personal-info h3 {
+    justify-self: center;
+}
+.personal-info  {
+margin-bottom: -35px;
+}
+
+}

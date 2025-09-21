@@ -6,6 +6,9 @@ html, body {
   cursor: none;
   
 }
+html {
+  scroll-behavior: smooth;
+}
 @font-face {
   font-family: 'SS Falling';          
   src: url('/assets/fonts/ss-falling.otf') format('opentype');

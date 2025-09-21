@@ -1,0 +1,112 @@
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 70px;
+  color: #fff;
+  font-family: var(--font-body, Arial, sans-serif);
+  gap: 100px;
+}
+
+.contact-left h2 {
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 1.45;
+  background: linear-gradient(90deg, #f8e9c0, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 600px;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-right p {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.contact-right a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+
+/* bouton ton <app-button> garde son style */
+app-custom-button {
+  margin-top: 20px;
+  transform: scale(1.03);
+}
+
+
+@media (max-width : 1028px) {
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 70px;
+  color: #fff;
+  font-family: var(--font-body, Arial, sans-serif);
+  gap: 30px;
+}
+
+.contact-left h2 {
+  font-size: 5.5vw;
+  font-weight: 600;
+  line-height: 1.45;
+  background: linear-gradient(90deg, #f8e9c0, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 4px;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-right p {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+}
+
+@media ( max-width :532px) {
+
+
+    .contact-left h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.45;
+  background: linear-gradient(90deg, #f8e9c0, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 4px;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-section {
+ padding: 0px 30px;
+
+}
+
+}
+

@@ -1,100 +1,167 @@
-/* Conteneur global */
+/* Timeline */
 .timeline {
+  border-left: 3px solid #ffffff;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 0px 0px 0px 75px;
+  margin-left: 416px;
+  text-align: justify;
+  margin-bottom: 80px;
+}
+
+.timeline-right h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 1.5px;
+}
+
+.timeline-right .description,
+.timeline-right .extra {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #fff;
+  white-space: pre-line;
+}
+
+.timeline .event {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-bottom: 30px;
+  margin-bottom: 60px;
+  position: relative;
+  display: flex;
+}
+
+/* Colonne gauche (desktop) */
+.timeline-left {
+  position: absolute;
+  left: -492px;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.6);
+  width: 350px;
+  line-height: 1.3;
   display: flex;
   flex-direction: column;
-  background: #000; /* fond noir */
-  padding-top: 10px ;
-  font-family: Arial, sans-serif;
-  color: #fff;
-}
-
-/* Élément */
-.timeline-item {
-  display: grid;
-  grid-template-columns: 1fr 60px 2fr; /* gauche | ligne | droite */
   align-items: flex-start;
-  margin-bottom: 4rem;
+  text-align: left;
 }
 
-
-/* Colonne gauche */
 .timeline-left h2 {
-  font-weight: bold;
   font-size: 1.6rem;
-  margin: 0;
-    margin-bottom: .8rem;
-    font-family: var(--font-ssfalling);
-    letter-spacing: 1.5px;
+  margin: 0 0 .5rem 0;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 1.5px;
 }
+
 .timeline-left p {
   font-size: 1.125rem;
   margin: 0.3rem 0;
   color: #ddd;
 }
 
-/* Ligne + point */
-.timeline-marker {
-  position: relative;
-  width: 40px; /* largeur fixe pour centrer */
-  display: flex;
-  justify-content: center;
+.timeline-left .date {
+  margin-top: 4px;
+  font-size: 1.15rem;
 }
 
+.timeline-left .location {
+  font-size: 1.1rem;
+  margin: 0;
+}
 
-.timeline-marker .dot {
-  width: 16px;
-  height: 16px;
+/* Point */
+.timeline .event:after {
+  left: -88px;
+  background: var(--gradiant);
   border-radius: 50%;
-  border: 3px solid #ccc;
-  background: var(--gradiant); /* point clair */
-  z-index: 2;
-}
-.timeline-marker .line {
-  width: 3px;
-  background: #ccc;
+  height: 22px;
+  width: 22px;
+  content: "";
+  position: absolute;
+  top: 8px;
 }
 
 /* Colonne droite */
-.timeline-right h2 {
-  font-weight: bold;
-  font-size: 1.2rem;
-   margin: 0;      /* supprime tous les marges */
-  padding: 0;     /* supprime tout padding interne */
-    margin-bottom: 0.5rem;
-
-  font-size: 1.5rem;
-  
-    font-family: var(--font-ssfalling);
-    letter-spacing: 1.5px;
+.timeline-right {
+  flex: 1;
 }
 
-
-.timeline-right .description,.timeline-right .extra {
-  font-size: 1.3125rem;
-  line-height: 1.5;
-  color: #fff;
-  white-space: pre-line;
+.timeline p {
+  margin: 0.3rem 0;
 }
 
-.timeline-right .extra { 
-    margin-top: -15px;
-}
-
-.extra .label {
-    
+.timeline .extra .label {
   text-decoration: underline;
-  font-weight: 600; /* medium */
+  font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .timeline-item {
-    grid-template-columns: 1fr;
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1024px) {
+  .timeline {
+    margin-left: 0;
+    padding-left: 20px;
+    border-left-width: 2px;
   }
-  .timeline-marker {
-    display: none; /* cacher ligne et point sur mobile */
+
+  .timeline .event {
+    flex-direction: column;
+    padding-left: 20px;
   }
-  .timeline-left, .timeline-right {
-    margin-bottom: 1rem;
+
+  .timeline-left {
+    position: relative;
+    left: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: flex-start; /* aligne à gauche en mobile */
+    text-align: left;
   }
+
+  .timeline .event:after {
+    left: -31px; /* recentre le point sur la bordure */
+    height: 20px;
+    width: 20px;
+  }
+
+  .timeline-right h2 {
+    font-size: 1.2rem;
+    margin-top: 15px;
+  }
+
+  .timeline-right .description,
+  .timeline-right .extra {
+    font-size: 1rem;
+  }
+
+
+
+.timeline-left h2 {
+  font-size: 1.3rem;
+  margin: 0 0 .5rem 0;
+  font-family: var(--font-ssfalling);
+  letter-spacing: 1.5px;
 }
+
+.timeline-left p {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  color: #ddd;
+}
+
+.timeline-left .date {
+    margin-top: -5px;
+  font-size: 1.15rem;
+}
+
+.timeline {
+
+  margin-bottom: 20px;
+}
+}
+
+

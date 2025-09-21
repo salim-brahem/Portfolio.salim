@@ -27,6 +27,7 @@ padding: 0;}
   margin-bottom: 25px;
   font-family: var(--font-ssfalling);
   letter-spacing: 2px;
+  gap: 5px;
   
 }
 
@@ -74,10 +75,18 @@ margin-bottom: -35px;
 .personal-info p {
   font-size: 17px;
 }
+}
 
+@media (max-width: 1024px) {
+  .about-content {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap; /* responsive : les colonnes passent en stack sur mobile */
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 
-
-
-
-
+  .personal-info {
+    margin-top: 8px;
+  }
 }

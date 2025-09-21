@@ -1,27 +1,24 @@
 <div class="timeline">
-    <div *ngFor="let item of experiences; let i = index" class="timeline-item">
-        <!-- Colonne gauche : entreprise -->
-        <div class="timeline-left">
-            <h2 class="gradient-text" *ngIf="item.title.split('|')[1]?.trim()">
-                {{ item.title.split('|')[1].trim() }}
-            </h2>
-            <p>{{ item.date }}</p>
-            <p>{{ item.location }}</p>
-        </div>
+  <li *ngFor="let item of experiences" class="event">
 
-        <!-- Ligne + point -->
-        <div class="timeline-marker">
-            <div class="dot"></div>
-        </div>
-
-        <!-- Colonne droite : poste + description -->
-        <div class="timeline-right">
-            <h2 class="gradient-text">{{ item.title.split('|')[0].trim() }}</h2>
-            <p class="description">{{ item.description }}</p>
-            <p class="extra" *ngIf="item.Extra">
-                <span class="label">{{ item.Extra.split(':')[0] }}</span> :
-                {{ item.Extra.split(':')[1] }}
-            </p>
-        </div>
+    <!-- Colonne gauche (au lieu de data-attr) -->
+    <div class="timeline-left">
+      <h2 class="gradient-text" *ngIf="item.title.split('|')[1]?.trim()">
+        {{ item.title.split('|')[1].trim() }}
+      </h2>
+      <p class="date">{{ item.date }}</p>
+      <p class="location">{{ item.location }}</p>
     </div>
+
+    <!-- Colonne droite -->
+    <div class="timeline-right">
+      <h2 class="gradient-text">{{ item.title.split('|')[0].trim() }}</h2>
+      <p class="description">{{ item.description }}</p>
+      <p class="extra" *ngIf="item.Extra">
+        <span class="label">{{ item.Extra.split(':')[0] }}</span> :
+        {{ item.Extra.split(':')[1] }}
+      </p>
+    </div>
+
+  </li>
 </div>

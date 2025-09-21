@@ -1,0 +1,80 @@
+<section class="showcase">
+  <!-- Navigation -->
+  <div class="categories">
+    <span
+      *ngFor="let category of categories"
+      [class.active]="category === activeCategory"
+      (click)="setCategory(category)"
+    >
+      {{ category }}
+    </span>
+  </div>
+
+  <!-- Content principal -->
+  <div class="content">
+    <!-- Devices (image active) -->
+    <div class="devices">
+      <img [src]="activeProject.image" [alt]="activeProject.name" />
+    </div>
+
+    <!-- Projects -->
+    <div class="projects">
+      <p
+        *ngFor="let project of projects[activeCategory]"
+        (click)="setProject(project)"
+        [class.active]="project === activeProject"
+      >
+        {{ project.name }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Scroll Down -->
+  <div class="scroll-down" (click)="toggleDetails()">
+    <span *ngIf="!showDetails">⬇</span>
+    <span *ngIf="showDetails">✖</span>
+  </div>
+
+  <!-- Détails projet -->
+  <div class="project-details" *ngIf="showDetails">
+    <div class="details-container">
+      
+      <!-- Colonne gauche -->
+      <div class="details-left">
+        <p>{{ activeProject.description }}</p>
+
+        <h3><u>Stack utilisé:</u></h3>
+       <ul class="stack-list">
+  <li *ngFor="let tech of activeProject.stack">
+    <img [src]="'assets/icons/' + tech.toLowerCase() + '.png'" [alt]="tech" />
+    <span>{{ tech }}</span>
+  </li>
+</ul>
+      </div>
+
+      <!-- Colonne droite (carrousel) -->
+      <div class="details-right">
+        <div class="carousel">
+          <button class="nav prev" (click)="prevImage()">⬅</button>
+
+          <div class="carousel-image">
+            <img 
+              [src]="activeImage" 
+              [alt]="activeProject.name"
+              (click)="openLightbox(activeImage)" 
+            />
+          </div>
+
+          <button class="nav next" (click)="nextImage()">➡</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox (image plein écran) -->
+  <div class="lightbox" *ngIf="lightboxImage" (click)="closeLightbox()">
+    <span class="close">✖</span>
+    <img [src]="lightboxImage" alt="Zoom" />
+  </div>
+
+</section>

@@ -9,10 +9,14 @@
 
     <div id="socials">
 
-      <a href="#"><img src="assets/icons/linkedin.png" alt=""></a>
-      <a href="#"><img src="assets/icons/github.png" alt=""></a>
-      <a href="#"><img src="assets/icons/behance.png" alt=""></a>
-      <a href="#"><img src="assets/icons/facebook.png" alt=""></a>
+     <a href="https://www.linkedin.com/in/salim-brahem/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/icons/linkedin.png" alt=""></a>
+                <a href="https://github.com/salim-brahem" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/icons/github.png" alt=""></a>
+                <a href="https://www.behance.net/salimbrahem" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/icons/behance.png" alt=""></a>
+                <a href="https://www.facebook.com/salimbrahem11/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/icons/facebook.png" alt=""></a>
     </div>
 
 
@@ -40,7 +44,10 @@
         <a href="#contacts">Contacts</a>
       </div>
 
-      <app-custom-button id="download-cv">Télécharger le CV</app-custom-button>
+<app-custom-button id="download-cv" (click)="downloadCV()">
+  Télécharger le CV
+</app-custom-button>
+    
     </nav>
 
 
@@ -58,11 +65,13 @@
   <app-boucle></app-boucle>
 
 
-   <div class="rand-container" >
-<app-section-name align="right" >
-   <span title>À propos</span>
-  <span subtitle>À propos</span>
-</app-section-name>
+  <div class="rand-container">
+    <app-section-name align="right">
+      <span title>À propos</span>
+      <span subtitle>À propos</span>
+      <span subtitle1>À propos</span>
+
+    </app-section-name>
 
 
   </div>
@@ -74,11 +83,13 @@
   </section>
 
 
-     <div class="rand-container" >
-<app-section-name align="left">
-   <span title>Compétences</span>
-  <span subtitle>Compétences</span>
-</app-section-name>
+  <div class="rand-container">
+    <app-section-name align="left">
+      <span title>Compétences</span>
+      <span subtitle>Compétences</span>
+      <span subtitle1>Compétences</span>
+
+    </app-section-name>
 
 
   </div>
@@ -90,22 +101,66 @@
 
   </section>
 
-  <section id="experience">
 
+   <div class="rand-container" >
+<app-section-name align="right" >
+   <span title>Expérience</span>
+  <span subtitle>Expérience</span>
+    <span subtitle1>Expérience</span>
+
+</app-section-name>
+
+
+  </div>
+
+
+  <section id="experience" class="rand-container">
+<app-experience></app-experience>
   </section>
 
-  <section id="portfolio">
 
+
+   <div class="rand-container" >
+<app-section-name align="left" >
+   <span title>Portfolio</span>
+  <span subtitle>Portfolio</span>
+    <span subtitle1>Portfolio</span>
+
+</app-section-name>
+
+
+  </div>
+
+  <section id="portfolio" class="rand-container">
+<app-portfolio></app-portfolio>
   </section>
 
-  <section id="contacts">
 
+
+
+    <div class="rand-container" >
+<app-section-name align="right" >
+   <span title>Contact</span>
+  <span subtitle>Contact</span>
+    <span subtitle1>Contact</span>
+
+</app-section-name>
+
+
+  </div>
+
+
+  <section id="contacts" class="rand-container">
+<app-contact></app-contact>
   </section>
 
 
 
+<section class="rand-container">
 
+<app-footer ></app-footer>
 
+</section>
 
 
 

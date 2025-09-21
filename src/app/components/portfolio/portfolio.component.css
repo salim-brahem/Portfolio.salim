@@ -1,0 +1,476 @@
+.showcase {
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+/* Navigation */
+.showcase .categories {
+    margin-top: 15px;
+  display: flex;
+  margin-bottom: 60px;
+  font-size: 1.28rem;
+  letter-spacing: 2.5px;
+  font-family: var(--font-ssfalling);
+  padding: 0;
+flex-direction: row;
+justify-content: center;
+align-items: center;}
+
+.showcase .categories span {
+  font-weight: bold;
+  margin: 0 22px;
+  transition: all 0.3s;
+}
+
+.showcase .categories .active {
+  background: var(--gradiant);
+  padding: 19px 24px 17px 27px;
+  border-radius: 32px;
+  color: #111111;
+}
+
+/* Content */
+.showcase .content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.showcase .devices img {
+  width: 52.5vw;
+  height: auto;
+}
+
+/* Projects */
+.showcase .projects {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 14px;
+  margin-top: -30px;
+  margin-right: 10px;
+}
+
+.showcase .projects p {
+  font-size: 1.75rem;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  padding-left: 20px;
+  position: relative;
+  transition: all 0.3s ease; /* 👈 fluide et rapide */
+}
+
+.showcase .projects p:hover {
+  background: var(--gradiant);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.05); /* léger zoom smooth */
+}
+
+
+
+/* Actif = flèche + texte dégradé */
+.showcase .projects p.active {
+  display: flex;
+  align-items: center;
+  background: var(--gradiant);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
+    font-size: 1.85rem;
+
+}
+
+.showcase .projects p.active::before {
+  content: "➜"; /* flèche */
+  margin-right: 10px; /* espace entre flèche et texte */
+  color: var(--gradiant); /* doré ou autre couleur */
+  font-size: 1.2rem;
+  position: static; /* important : reste dans le flux normal */
+}
+
+
+.showcase .scroll-down {
+  margin-top: -40px;
+  font-size: 28px;
+  width: 55px;               /* largeur cercle */
+  height: 55px;              /* hauteur cercle */
+  border-radius: 50%;        /* cercle parfait */
+  background: var(--gradiant) ;/* fond transparent léger */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease, background 0.3s ease;
+  animation: bounce 2s infinite;
+  color: #000;
+}
+
+
+.showcase .scroll-down:hover {
+  transform: scale(1.15);    /* cercle qui s’agrandit */
+filter: brightness(0.85);}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+
+
+@media ( max-width :1300px) {
+
+    .showcase .projects p {
+  font-size: 1.5rem;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  padding-left: 20px;
+  position: relative;
+  transition: all 0.3s ease; /* 👈 fluide et rapide */
+}
+
+.showcase .devices img {
+  width: 48vw;
+  height: auto;
+}
+
+
+/* Actif = flèche + texte dégradé */
+.showcase .projects p.active {
+  display: flex;
+  align-items: center;
+  background: var(--gradiant);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
+    font-size: 1.6rem;
+
+}
+
+
+
+}
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+  .showcase .content {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .showcase .devices img {
+    width: 70vw;
+  }
+
+.details-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Actif = flèche + texte dégradé */
+.showcase .projects p.active {
+  display: flex;
+  align-items: center;
+  background: var(--gradiant);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
+    font-size: 1.52rem;
+
+}
+
+.showcase .projects {
+     order: -1;
+    align-items: center;
+    margin-top: -14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 40px;
+    align-items: center;
+justify-content: center; 
+margin-bottom: 28px; }
+
+.showcase .projects p {
+    font-size: 1.45rem;
+}
+
+
+  .showcase .categories {
+    margin-top: 15px;
+  display: flex;
+  margin-bottom: 60px;
+  font-size: 1.15rem;
+  letter-spacing: 2.5px;
+  font-family: var(--font-ssfalling);
+  padding: 0;
+flex-direction: row;
+justify-content: center;
+align-items: center;}
+}
+
+@media (max-width: 768px) {
+  .showcase .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .showcase .devices img {
+    width: 85vw;
+  }
+
+  .showcase .projects {
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .showcase .projects p {
+    font-size: 1.4rem;
+    padding-left: 0;
+  }
+
+  .showcase .projects p.active::before {
+    margin-right: 6px;
+  }
+
+  .showcase .categories {
+    margin-top: 15px;
+  display: flex;
+  margin-bottom: 60px;
+  font-size: 1.05rem;
+  letter-spacing: 2.5px;
+  font-family: var(--font-ssfalling);
+  padding: 0;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+
+}
+}
+
+
+
+.project-details {
+  margin-top: 40px;
+  border-radius: 16px;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.details-left {
+  flex: 1;
+  text-align: left; /* ✅ bien aligné à gauche */
+}
+
+
+.details-left p {
+  margin-bottom: 15px;
+  line-height: 1.65;
+  text-align: justify;
+  font-size: 1.2em;
+}
+
+.details-left h3 {
+  margin-top: 24px;
+  margin-bottom: 20px;
+  font-size: 1.45rem;
+  background: var(--gradiant);
+  -webkit-background-clip: text; /* clip le background au texte */
+  -webkit-text-fill-color: transparent; /* rend le texte transparent pour voir le gradient */
+    width: fit-content;
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* optionnel : épaisseur */
+  text-underline-offset: 4px;     /* optionnel : espace entre texte et trait */
+    text-decoration-color: #fff/* ta couleur personnalisée */;
+    font-family: var(--font-ssfalling);
+    letter-spacing: 2px;
+    
+
+}
+
+.details-left ul {
+    
+  list-style-type: disc;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px 30px ;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.details-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 500px; /* ✅ hauteur fixe */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* ✅ image non rognée */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Boutons transparents */
+/* Boutons par défaut = juste flèche blanche */
+.carousel .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; /* 👈 pas de cercle */
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: 32px; /* un peu + grand */
+  color: white;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Position */
+.carousel .nav.prev {
+  left: 15px;
+}
+
+.carousel .nav.next {
+  right: 15px;
+}
+
+/* Hover = cercle glass */
+.carousel .nav:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;          /* cercle */
+  width: 50px;                 /* cercle taille */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(9px);
+  transform: scale(1.1);
+  font-size: 22px;             /* re-centre la flèche */
+}
+
+
+
+@media (max-width: 1024px) {
+  .details-container {
+    flex-direction: column;
+  }
+
+  .details-right {
+    margin-top: 20px;
+  }
+}
+
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  animation: zoomIn 0.3s ease;
+}
+
+/* Bouton close */
+.lightbox .close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 2rem;
+  color: white;
+  z-index: 10000;
+}
+
+.lightbox .close:hover {
+  background: var(--gradiant);
+  -webkit-background-clip: text; /* clip le background au texte */
+  -webkit-text-fill-color: transparent; /* rend le texte transparent pour voir le gradient */
+  font-weight: bold;
+    width: fit-content;
+    transform: scale(1.03);
+}
+
+/* Animation zoom */
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.stack-list {
+  list-style: none;   /* enlève les puces */
+  padding: 0;
+  margin: 0;
+}
+
+.stack-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;          /* espace entre l’icône et le texte */
+  margin-bottom: 8px;
+}
+
+.stack-list img {
+  width: 30px;        /* taille de l’icône */
+  height: 30px;
+  object-fit: contain;
+}
+
+
+@media (max-width : 480px) {
+      .showcase .categories {
+        flex-wrap: wrap;
+        gap: 25px 40px;
+        margin-bottom: -6px;
+      }
+
+}

@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
@@ -13,7 +13,7 @@ animations: [
   trigger('fadeSlide', [
     transition(':enter', [
       style({ opacity: 0 }),
-      animate('700ms', style({ opacity: 1 }))
+      animate('800ms', style({ opacity: 1 }))
     ]),
     transition(':leave', [
       style({ opacity: 0 }) // supprime animate, disparaît instantanément
@@ -23,10 +23,30 @@ animations: [
 
 })
 export class SkillsComponent {
-  activeSection: 'front' | 'back' | 'marketing' = 'front';
+  activeSection: 'front' | 'back' | 'marketing' | null = 'front';
+  isMobile: boolean = false;
 
-  // Méthode pour changer de section
-  setActive(section: 'front' | 'back' | 'marketing') {
-    this.activeSection = section;
+  constructor() {
+    this.checkWindowWidth();
   }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkWindowWidth();
+  }
+
+  private checkWindowWidth() {
+    // on vérifie la largeur de la fenêtre
+    this.isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
+  }
+
+  setActive(section: 'front' | 'back' | 'marketing') {
+    // toggle sur mobile
+    if (this.isMobile && this.activeSection === section) {
+      this.activeSection = null;
+    } else {
+      this.activeSection = section;
+    }
+  }
+
 }

@@ -43,7 +43,6 @@ padding: 0;}
 
 .description {
   flex: 2;
-  min-width: 300px;
   max-width: 656px;
 }
 
@@ -65,5 +64,20 @@ padding: 0;}
 .personal-info  {
 margin-bottom: -35px;
 }
+.description p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.personal-info p {
+  font-size: 17px;
+}
+
+
+
+
+
 
 }

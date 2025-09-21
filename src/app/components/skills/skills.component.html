@@ -1,6 +1,6 @@
  <div class="skills-container">
     <!-- SECTION GAUCHE -->
-  <div class="left-section" *ngIf="activeSection === 'front'" @fadeSlide>
+  <div class="left-section desktop" *ngIf="activeSection === 'front'" @fadeSlide>
       <div class="category">
         <h3>Langages :</h3>
         <div class="icons">
@@ -33,7 +33,7 @@
 
 
 
-  <div class="left-section" *ngIf="activeSection === 'back'" @fadeSlide>
+  <div class="left-section desktop" *ngIf="activeSection === 'back'" @fadeSlide>
       <div class="category">
         <h3>Langages :</h3>
         <div class="icons">
@@ -81,7 +81,7 @@
 
 
 
-<div class="left-section" *ngIf="activeSection === 'marketing'" @fadeSlide>
+<div class="left-section desktop" *ngIf="activeSection === 'marketing'" @fadeSlide>
       
 <div class="category">
         <h3>Outils :</h3>
@@ -128,6 +128,39 @@
   </div>
 </div>
 
+  <div class="left-section mobile"  *ngIf="activeSection === 'front'" @fadeSlide>
+      <div class="category">
+        <h3>Langages :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/html.png"><p>HTML</p></div>
+          <div><img src="assets/icons/css.png"><p>CSS</p></div>
+          <div><img src="assets/icons/ts.png"><p>TypeScript</p></div>
+          <div><img src="assets/icons/js.png"><p>JavaScript</p></div>
+          <div><img src="assets/icons/primeng.png" alt="PrimeNG"><p>PrimeNG</p></div>
+          <div><img src="assets/icons/tailwind.png"><p>Tailwind CSS</p></div>
+        </div>
+      </div>
+
+      <div class="category">
+        <h3>Frameworks :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/angular.png"><p>Angular</p></div>
+          <div><img src="assets/icons/react.png"><p>React</p></div>
+        </div>
+      </div>
+
+      <div class="category">
+        <h3>UI/UX Design :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/figma.png"><p>Figma</p></div>
+          <div><img src="assets/icons/ps.png"><p>Photoshop</p></div>
+          <div><img src="assets/icons/ai.png"><p>Illustrator</p></div>
+        </div>
+      </div>
+    </div>
+
+
+
 <div class="card" (click)="setActive('back')"
        [class.active]="activeSection === 'back'">
   <div class="card-icon"><img src="assets/icons/back.png" alt="Back-End"></div>
@@ -138,6 +171,53 @@
   </div>
 </div>
 
+
+
+  <div class="left-section mobile" *ngIf="activeSection === 'back'" @fadeSlide>
+      <div class="category">
+        <h3>Langages :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/c++.png"><p>C++</p></div>
+          <div><img src="assets/icons/python.png"><p>Python</p></div>
+          <div><img src="assets/icons/java.png"><p>Java</p></div>
+          <div><img src="assets/icons/sql.png"><p>SQL</p></div>
+
+        </div>
+      </div>
+
+      <div class="category">
+        <h3>Frameworks :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/spring.png"><p>Spring</p></div>
+          <div><img src="assets/icons/net.png"><p>.NET</p></div>
+          <div><img src="assets/icons/node.png"><p>Node.js</p></div>
+
+        </div>
+      </div>
+
+      <div class="category">
+        <h3>Bases de données :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/mysql.png"><p>MySQL</p></div>
+          <div><img src="assets/icons/mongodb.png"><p>MongoDB</p></div>
+          <div><img src="assets/icons/postgresql.png"><p>PostgreSQL</p></div>
+        </div>
+      </div>
+
+       <div class="category">
+        <h3>Cloud & DevOps :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/aws.png"><p>AWS</p></div>
+          <div><img src="assets/icons/docker.png"><p>Docker</p></div>
+          <div><img src="assets/icons/kubernetes.png"><p>Kubernetes</p></div>
+          <div><img src="assets/icons/github actions.png"><p>GitHub Actions</p></div>
+
+
+        </div>
+      </div>
+    </div>
+
+
 <div class="card" (click)="setActive('marketing')"
        [class.active]="activeSection === 'marketing'">
   <div class="card-icon"><img src="assets/icons/megaphone.png" alt="Marketing"></div>
@@ -147,6 +227,36 @@
     <p>Branding</p>
   </div>
 </div>
+
+
+<div class="left-section mobile" *ngIf="activeSection === 'marketing'" @fadeSlide>
+      
+<div class="category">
+        <h3>Outils :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/figma.png"><p>Figma</p></div>
+          <div><img src="assets/icons/ps.png"><p>Adobe Photoshop</p></div>
+          <div><img src="assets/icons/ai.png"><p>Adobe Illustrator</p></div>
+          <div><img src="assets/icons/aftereffects.png"><p>Adobe After Effects</p></div>
+          <div><img src="assets/icons/premierepro.png"><p>Adobe Premiere Pro</p></div>
+
+        </div>
+      </div>
+
+
+      <div class="category">
+        <h3>Analyse :</h3>
+        <div class="icons">
+          <div><img src="assets/icons/Google-Analytics-Logo.png"><p>Google Analytics</p></div>
+          <div><img src="assets/icons/suite.png"><p>Meta Business Suite</p></div>
+          <div><img src="assets/icons/powerBI.png"><p>Power BI</p></div>
+
+        </div>
+      </div>
+
+
+      
+    </div>
 
     </div>
   </div>

@@ -161,6 +161,9 @@ filter: brightness(0.85);}
 }
 /* 📱 Responsive */
 @media (max-width: 1024px) {
+
+.showcase .scroll-down {    margin-top: 12px;
+} 
   .showcase .content {
     justify-content: center;
     gap: 20px;
@@ -472,5 +475,28 @@ align-items: center;
         gap: 25px 40px;
         margin-bottom: -6px;
       }
+
+.showcase .scroll-down {    
+    width: 45px;
+    height: 45px;
+
+}
+
+.details-left {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;}
+
+.details-left ul {
+    
+  list-style-type: disc;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px 30px ;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 }

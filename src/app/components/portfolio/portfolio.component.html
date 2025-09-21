@@ -31,8 +31,10 @@
 
   <!-- Scroll Down -->
   <div class="scroll-down" (click)="toggleDetails()">
-    <span *ngIf="!showDetails">⬇</span>
-    <span *ngIf="showDetails">✖</span>
+     <i *ngIf="!showDetails"  class="ri-arrow-down-fill"></i>
+
+  <i *ngIf="showDetails" class="bi bi-x"></i>
+
   </div>
 
   <!-- Détails projet -->
@@ -55,8 +57,10 @@
       <!-- Colonne droite (carrousel) -->
       <div class="details-right">
         <div class="carousel">
-          <button class="nav prev" (click)="prevImage()">⬅</button>
-
+<button class="nav prev" (click)="prevImage()">
+  <i class="ri-arrow-left-fill"></i>
+</button>
+          
           <div class="carousel-image">
             <img 
               [src]="activeImage" 
@@ -65,7 +69,8 @@
             />
           </div>
 
-          <button class="nav next" (click)="nextImage()">➡</button>
+          <button class="nav next" (click)="nextImage()">  <i class="ri-arrow-right-fill"></i>
+</button>
         </div>
       </div>
     </div>

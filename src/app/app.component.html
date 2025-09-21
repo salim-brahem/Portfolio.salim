@@ -1,87 +1,106 @@
 <body>
-    <app-mouse-effect></app-mouse-effect>
+  <app-mouse-effect></app-mouse-effect>
 
 
-<div class="rand-container">
+  <div class="rand-container">
 
 
 
 
-  <div id="socials">
+    <div id="socials">
 
-            <a href="#"><img src="assets/icons/linkedin.png" alt=""></a>
-            <a href="#"><img src="assets/icons/github.png" alt=""></a>
-            <a href="#"><img src="assets/icons/behance.png" alt=""></a>
-            <a href="#"><img src="assets/icons/facebook.png" alt=""></a>
-        </div>
-        
+      <a href="#"><img src="assets/icons/linkedin.png" alt=""></a>
+      <a href="#"><img src="assets/icons/github.png" alt=""></a>
+      <a href="#"><img src="assets/icons/behance.png" alt=""></a>
+      <a href="#"><img src="assets/icons/facebook.png" alt=""></a>
+    </div>
 
-   <!-- Checkbox pour toggle le menu mobile -->
-  <input type="checkbox" id="overlay-input" />
-  <label for="overlay-input" id="overlay-button"><span></span></label>
 
-  <!-- Menu overlay pour mobile -->
-  <div id="overlay">
-    <ul>
-      <li><a href="#a-propos">À propos</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#experience">Expérience</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contacts">Contacts</a></li>
-    </ul>
+    <!-- Checkbox pour toggle le menu mobile -->
+    <input type="checkbox" id="overlay-input" />
+    <label for="overlay-input" id="overlay-button"><span></span></label>
+
+    <!-- Menu overlay pour mobile -->
+    <div id="overlay">
+      <ul>
+        <li><a href="#a-propos">À propos</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+    </div>
+
+    <nav>
+      <div class="nav-links">
+        <a href="#a-propos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#experience">Expérience</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contacts">Contacts</a>
+      </div>
+
+      <app-custom-button id="download-cv">Télécharger le CV</app-custom-button>
+    </nav>
+
+
+
+
   </div>
 
-  <nav>
-  <div class="nav-links">
-    <a href="#a-propos">À propos</a>
-    <a href="#competences">Compétences</a>
-    <a href="#experience">Expérience</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contacts">Contacts</a>
-  </div>
-
-  <app-custom-button id="download-cv">Télécharger le CV</app-custom-button>
-</nav>
 
 
-
-    
-</div>
-
-
-
-<div class="rand-container">
+  <div class="rand-container">
 
     <app-home></app-home>
-</div>
+  </div>
 
-<app-boucle></app-boucle>
+  <app-boucle></app-boucle>
 
 
-    <section id="a-propos"  class="rand-container">
+   <div class="rand-container" >
+<app-section-name align="right" >
+   <span title>À propos</span>
+  <span subtitle>À propos</span>
+</app-section-name>
+
+
+  </div>
+
+
+  <section id="a-propos" class="rand-container">
 
     <app-about></app-about>
-    </section>
+  </section>
 
 
-    
-    <section id="competences">
-
-    </section>
-
-    <section id="experience">
-
-    </section>
-
-    <section id="portfolio">
-
-    </section>
-
-    <section id="contacts">
-
-    </section>
+     <div class="rand-container" >
+<app-section-name align="left">
+   <span title>Compétences</span>
+  <span subtitle>Compétences</span>
+</app-section-name>
 
 
+  </div>
+
+
+  <section id="competences" class="rand-container">
+
+    <app-skills></app-skills>
+
+  </section>
+
+  <section id="experience">
+
+  </section>
+
+  <section id="portfolio">
+
+  </section>
+
+  <section id="contacts">
+
+  </section>
 
 
 
@@ -92,5 +111,7 @@
 
 
 
-    <router-outlet></router-outlet>
+
+
+  <router-outlet></router-outlet>
 </body>

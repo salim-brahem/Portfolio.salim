@@ -1,76 +1,129 @@
 <section class="showcase">
   <!-- Navigation -->
   <div class="categories">
-    <span
-      *ngFor="let category of categories"
-      [class.active]="category === activeCategory"
-      (click)="setCategory(category)"
-    >
+    <span *ngFor="let category of categories" [class.active]="category === activeCategory"
+      (click)="setCategory(category)">
       {{ category }}
     </span>
   </div>
 
   <!-- Content principal -->
   <div class="content">
-    <!-- Devices (image active) -->
-    <div class="devices">
-      <img [src]="activeProject.image" [alt]="activeProject.name" />
+
+
+    <!-- Cas spécial : UI/UX Design & Branding -->
+    <div class="uiux-view" *ngIf="activeCategory === 'UI/UX Design & Branding'">
+      <div class="uiux-grid">
+        <div class="uiux-item" *ngFor="let project of projects[activeCategory]">
+          <div>
+            <!-- Si PDF -->
+            <ng-container *ngIf="project.file; else imageBlock">
+              <img [src]="project.image" [alt]="project.name" (click)="openPdfLightbox(project.file!)"
+                (contextmenu)="$event.preventDefault()" draggable="false" />
+            </ng-container>
+
+            <ng-template #imageBlock>
+              <img [src]="project.image" [alt]="project.name" (click)="openLightbox(project.image)"
+                (contextmenu)="$event.preventDefault()" draggable="false" />
+            </ng-template>
+
+
+            <!-- Overlay -->
+            <div class="overlay">
+              <h3>{{ project.name }}</h3>
+            </div>
+          </div>
+
+          <!-- Tags sous l’image -->
+          <div class="tags" *ngIf="project.tags?.length">
+            <span *ngFor="let tag of project.tags">#{{ tag }}</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Projects -->
-    <div class="projects">
-      <p
-        *ngFor="let project of projects[activeCategory]"
-        (click)="setProject(project)"
-        [class.active]="project === activeProject"
-      >
-        {{ project.name }}
-      </p>
-    </div>
+    <!-- Cas spécial : Cloud -->
+    <ng-container *ngIf="activeCategory === 'Cloud'">
+
+      <div class="contentcloud">
+
+        <div class="devices cloud">
+          <img [src]="activeProject.image" [alt]="activeProject.name" (contextmenu)="$event.preventDefault()"
+            draggable="false" />
+
+          <!-- Paragraphe description en plus -->
+          <p class="cloud-description">{{ activeProject.description }}</p>
+        </div>
+
+        <!-- Liste des projets à droite -->
+        <div class="projects">
+          <p *ngFor="let project of projects[activeCategory]" (click)="setProject(project)"
+            [class.active]="project === activeProject">
+            {{ project.name }}
+          </p>
+        </div>
+
+      </div>
+
+    </ng-container>
+
+    <!-- Cas normal (autres catégories sauf UI/UX et Cloud) -->
+    <ng-container *ngIf="activeCategory !== 'UI/UX Design & Branding' && activeCategory !== 'Cloud'">
+      <div class="devices">
+        <img [src]="activeProject.image" [alt]="activeProject.name" (contextmenu)="$event.preventDefault()"
+          draggable="false" />
+      </div>
+
+      <div class="projects">
+        <p *ngFor="let project of projects[activeCategory]" (click)="setProject(project)"
+          [class.active]="project === activeProject">
+          {{ project.name }}
+        </p>
+      </div>
+    </ng-container>
   </div>
 
-  <!-- Scroll Down -->
-  <div class="scroll-down" (click)="toggleDetails()">
-     <i *ngIf="!showDetails"  class="ri-arrow-down-fill"></i>
-
-  <i *ngIf="showDetails" class="bi bi-x"></i>
-
+  <!-- Scroll Down (masqué pour UI/UX et Cloud) -->
+  <div class="scroll-down" *ngIf="activeCategory !== 'UI/UX Design & Branding' && activeCategory !== 'Cloud'"
+    (click)="toggleDetails()">
+    <i *ngIf="!showDetails" class="ri-arrow-down-fill"></i>
+    <i *ngIf="showDetails" class="bi bi-x"></i>
   </div>
 
-  <!-- Détails projet -->
-  <div class="project-details" *ngIf="showDetails">
+  <!-- Détails projet (sauf UI/UX et Cloud) -->
+  <div class="project-details"
+    *ngIf="showDetails && activeCategory !== 'UI/UX Design & Branding' && activeCategory !== 'Cloud'">
     <div class="details-container">
-      
       <!-- Colonne gauche -->
       <div class="details-left">
         <p>{{ activeProject.description }}</p>
 
         <h3><u>Stack utilisé:</u></h3>
-       <ul class="stack-list">
-  <li *ngFor="let tech of activeProject.stack">
-    <img [src]="'assets/icons/' + tech.toLowerCase() + '.png'" [alt]="tech" />
-    <span>{{ tech }}</span>
-  </li>
-</ul>
+        <ul class="stack-list">
+          <li *ngFor="let tech of activeProject.stack">
+            <img [src]="'assets/icons/' + (tech.toLowerCase() === '.net' ? 'net' : tech.toLowerCase()) + '.png'"
+              [alt]="tech" (contextmenu)="$event.preventDefault()" draggable="false" />
+            <span>{{ tech }}</span>
+          </li>
+
+        </ul>
       </div>
 
       <!-- Colonne droite (carrousel) -->
       <div class="details-right">
         <div class="carousel">
-<button class="nav prev" (click)="prevImage()">
-  <i class="ri-arrow-left-fill"></i>
-</button>
-          
+          <button class="nav prev" (click)="prevImage()">
+            <i class="ri-arrow-left-fill"></i>
+          </button>
+
           <div class="carousel-image">
-            <img 
-              [src]="activeImage" 
-              [alt]="activeProject.name"
-              (click)="openLightbox(activeImage)" 
-            />
+            <img (contextmenu)="$event.preventDefault()" draggable="false" [src]="activeImage"
+              [alt]="activeProject.name" (click)="openLightbox(activeImage)" />
           </div>
 
-          <button class="nav next" (click)="nextImage()">  <i class="ri-arrow-right-fill"></i>
-</button>
+          <button class="nav next" (click)="nextImage()">
+            <i class="ri-arrow-right-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -78,8 +131,13 @@
 
   <!-- Lightbox (image plein écran) -->
   <div class="lightbox" *ngIf="lightboxImage" (click)="closeLightbox()">
-    <span class="close">✖</span>
-    <img [src]="lightboxImage" alt="Zoom" />
+    <span class="close"><i class="bi bi-x"></i></span>
+    <img [src]="lightboxImage" alt="Zoom" (contextmenu)="$event.preventDefault()" draggable="false" />
   </div>
 
+  <!-- Lightbox pour PDF -->
+  <div class="lightbox" *ngIf="lightboxPdf">
+    <span class="close" (click)="closeLightbox()"><i class="bi bi-x"></i></span>
+    <iframe [src]="lightboxPdf" width="90%" height="90%" style="border:none; background:white;"></iframe>
+  </div>
 </section>

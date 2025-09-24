@@ -20,20 +20,22 @@
     </div>
 
 
-    <!-- Checkbox pour toggle le menu mobile -->
-    <input type="checkbox" id="overlay-input" />
-    <label for="overlay-input" id="overlay-button"><span></span></label>
+   <!-- Checkbox pour toggle le menu mobile -->
+<input type="checkbox" id="overlay-input" />
+<label for="overlay-input" id="overlay-button"><span></span></label>
 
-    <!-- Menu overlay pour mobile -->
-    <div id="overlay">
-      <ul>
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#experience">Expérience</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contacts">Contacts</a></li>
-      </ul>
-    </div>
+<!-- Menu overlay pour mobile -->
+<div id="overlay">
+  <ul>
+    <li><a href="#a-propos" (click)="closeOverlay()">À propos</a></li>
+    <li><a href="#competences" (click)="closeOverlay()">Compétences</a></li>
+    <li><a href="#experience" (click)="closeOverlay()">Expérience</a></li>
+    <li><a href="#portfolio" (click)="closeOverlay()">Portfolio</a></li>
+    <li><a href="#contact" (click)="closeOverlay()">Contact</a></li>
+    <li><a href="#moments" (click)="closeOverlay()">Moments</a></li>
+  </ul>
+</div>
+
 
     <nav>
       <div class="nav-links">
@@ -41,7 +43,9 @@
         <a href="#competences">Compétences</a>
         <a href="#experience">Expérience</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#contacts">Contacts</a>
+        <a href="#contact">Contact</a>
+       <a href="#moments">Moments</a>
+
       </div>
 
 <app-custom-button id="download-cv" (click)="downloadCV()">
@@ -148,7 +152,7 @@
   </div>
 
 
-  <section id="contacts" class="rand-container">
+  <section id="contact" class="rand-container">
 <app-contact></app-contact>
   </section>
 

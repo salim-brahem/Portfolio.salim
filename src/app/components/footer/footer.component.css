@@ -51,7 +51,11 @@
 }
 
 .footer-col a:hover {
-  color: var(--gradiant-color, #f5d742);
+    background: var(--gradiant);
+  -webkit-background-clip: text; /* clip le background au texte */
+  -webkit-text-fill-color: transparent; /* rend le texte transparent pour voir le gradient */
+  font-weight: bold;
+    width: fit-content;
 }
 
 .socials {

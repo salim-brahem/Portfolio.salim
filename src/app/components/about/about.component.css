@@ -21,14 +21,13 @@ padding: 0;}
 }
 
 .personal-info h3 {
-  display: flex;
   align-items: center;
   font-size: 22px;
   margin-bottom: 25px;
   font-family: var(--font-ssfalling);
   letter-spacing: 2px;
   gap: 5px;
-  
+    gap: 0;
 }
 
 

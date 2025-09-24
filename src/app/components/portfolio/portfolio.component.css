@@ -486,15 +486,6 @@ align-items: center;}
   font-size: 12px;
 }
 
-.tags span {
-  background: #f2f2f2;
-  color: #333;
-  padding: 2px 6px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 500;
-}
-
 
 
 
@@ -618,7 +609,7 @@ align-items: center;}
 .uiux-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 15px 25px;
   justify-content: center;
 }
 
@@ -672,6 +663,8 @@ align-items: center;}
   transition: background 0.3s ease, opacity 0.3s ease;
   font-family: var(--font-ssfalling);
   letter-spacing: 2px;
+    pointer-events: none; /* laisse passer le clic vers l’image */
+
 }
 
 .uiux-item:hover .overlay {
@@ -684,7 +677,7 @@ align-items: center;}
   margin: 10px 0 15px;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 6px;
+  gap: 7px 6px;
   justify-content: center;
 }
 
@@ -692,7 +685,6 @@ align-items: center;}
   color: #e7e7e7;
   font-size: .88rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Lightbox commune (image + PDF) */
@@ -736,44 +728,43 @@ align-items: center;}
   font-weight: bold;
     width: fit-content;}
 
-/* Lightbox */
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.85);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999999;
+  z-index: 9999999; /* très élevé pour passer au-dessus de tout */
   cursor: zoom-out;
 }
 
-.lightbox img {
+/* Image et iframe bien centrés */
+.lightbox img,
+.lightbox iframe {
   max-width: 90%;
   max-height: 90%;
-  object-fit: contain;
-  border-radius: 12px;
-  animation: zoomIn 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Bouton close */
+/* Bouton de fermeture */
 .lightbox .close {
   position: absolute;
-  top: 40px;
-  right: 60px;
+  top: 20px;
+  right: 30px;
   font-size: 2rem;
   color: white;
-  z-index: 10000;
+  cursor: pointer;
+  z-index: 10000000;
 }
-
 .lightbox .close:hover {
-  background: var(--gradiant);
+    background: var(--gradiant);
   -webkit-background-clip: text; /* clip le background au texte */
   -webkit-text-fill-color: transparent; /* rend le texte transparent pour voir le gradient */
   font-weight: bold;
     width: fit-content;
-    transform: scale(1.03);
 }

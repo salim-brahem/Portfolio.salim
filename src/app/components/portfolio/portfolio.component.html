@@ -15,18 +15,19 @@
     <div class="uiux-view" *ngIf="activeCategory === 'UI/UX Design & Branding'">
       <div class="uiux-grid">
         <div class="uiux-item" *ngFor="let project of projects[activeCategory]">
-          <div>
+          <div class="image-wrapper">
             <!-- Si PDF -->
-            <ng-container *ngIf="project.file; else imageBlock">
+            <!-- Si le projet est un PDF -->
+            <ng-container *ngIf="project.file?.endsWith('.pdf'); else imageBlock">
               <img [src]="project.image" [alt]="project.name" (click)="openPdfLightbox(project.file!)"
                 (contextmenu)="$event.preventDefault()" draggable="false" />
             </ng-container>
 
+            <!-- Sinon image -->
             <ng-template #imageBlock>
               <img [src]="project.image" [alt]="project.name" (click)="openLightbox(project.image)"
                 (contextmenu)="$event.preventDefault()" draggable="false" />
             </ng-template>
-
 
             <!-- Overlay -->
             <div class="overlay">
@@ -48,7 +49,7 @@
       <div class="contentcloud">
 
         <div class="devices cloud">
-          <img [src]="activeProject.image" [alt]="activeProject.name" (contextmenu)="$event.preventDefault()"
+          <img [src]="activeProject.image" [alt]="activeProject.name" (contextmenu)="$event.preventDefault()" (click)="openLightbox(activeProject.image)"
             draggable="false" />
 
           <!-- Paragraphe description en plus -->

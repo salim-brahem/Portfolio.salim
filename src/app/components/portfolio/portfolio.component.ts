@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 type Category = 'Développement Web' | 'UI/UX Design & Branding' | 'Cloud';
 
@@ -23,6 +24,7 @@ interface Project {
 export class PortfolioComponent {
   categories: Category[] = ['Développement Web', 'UI/UX Design & Branding', 'Cloud'];
   activeCategory: Category = 'Développement Web';
+  constructor(private sanitizer: DomSanitizer) {}
 
   projects: Record<Category, Project[]> = {
     'Développement Web': [
@@ -44,21 +46,7 @@ export class PortfolioComponent {
       'assets/incidents/Incidents-8.jpeg'
     ]
   },
-  { 
-    name: 'LeadZ',
-    image: 'assets/photos/Leadz.webp',
-       description: `Solution CRM permettant de centraliser les données clients et prospects pour améliorer la gestion du cycle de vente. 
-    L’outil aide les équipes commerciales à suivre efficacement les contacts et opportunités, gérer les documents liés, et visualiser la performance via un tableau de bord en temps réel. 
-    L’objectif principal est d’optimiser la productivité et la prise de décision grâce à une gestion simplifiée de la relation client.`,
-    stack: ['Angular', 'NestJS', 'MySQL', 'Figma'],
-
-    portfolio: [
-      'assets/leadz/Leadz-1.jpg',
-      'assets/leadz/Leadz-2.jpg',
-      'assets/leadz/Leadz-3.png'
-    ]
-  },
-  { 
+    { 
     name: 'FoodMatch',
     image: 'assets/photos/foodmatch.webp',
         description: `Plateforme web qui centralise la mise en avant des restaurants et facilite l’interaction avec les utilisateurs grâce à un système d’avis et de réservation. 
@@ -77,17 +65,21 @@ export class PortfolioComponent {
     ]
   },
   { 
-    name: 'Net Voyage',
-    image: 'assets/photos/netvoyage.webp',
-    description: `Site web de réservation et gestion de voyages intégrant un système de paiement sécurisé. 
-    Il permet aux utilisateurs de consulter les offres, réserver en ligne, et gérer leurs voyages. 
-    Côté administrateur, la solution propose un suivi complet des réservations et clients.`,
-    stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
+    name: 'LeadZ',
+    image: 'assets/photos/Leadz.webp',
+       description: `Solution CRM permettant de centraliser les données clients et prospects pour améliorer la gestion du cycle de vente. 
+    L’outil aide les équipes commerciales à suivre efficacement les contacts et opportunités, gérer les documents liés, et visualiser la performance via un tableau de bord en temps réel. 
+    L’objectif principal est d’optimiser la productivité et la prise de décision grâce à une gestion simplifiée de la relation client.`,
+    stack: ['Angular', 'NestJS', 'MySQL', 'Figma'],
+
     portfolio: [
-      'assets/netvoyage/netvoyage1.png',
-      'assets/netvoyage/netvoyage2.png'
+      'assets/leadz/Leadz-1.jpg',
+      'assets/leadz/Leadz-2.jpg',
+      'assets/leadz/Leadz-3.png'
     ]
   },
+
+
   { 
     name: 'Portfolio',
     image: 'assets/photos/portfolio-pack.png',
@@ -108,10 +100,10 @@ export class PortfolioComponent {
     Le système intègre une authentification sécurisée par token et une gestion complète des profils et droits d’accès, garantissant fiabilité et adaptation aux besoins de l’entreprise.`,
     stack: ['Angular', 'Spring', 'MySQL'],
     portfolio: [
+      'assets/skilltrack/skilltrack-4.png',
       'assets/skilltrack/skilltrack-1.png',
       'assets/skilltrack/skilltrack-2.jpg',
       'assets/skilltrack/skilltrack-3.jpg',
-      'assets/skilltrack/skilltrack-4.png'
     ]
   }
 ]
@@ -120,7 +112,7 @@ export class PortfolioComponent {
    
     'UI/UX Design & Branding': [
       { name: 'Brand Guidelines', file: 'assets/docs/pizza.pdf', image: 'assets/photos/pizzaprev.jpg', tags: ['BoldBrands', 'Branding', 'Logo', 'Charte Graphique', 'AI', 'PS'] },
-      { name: 'Costo Doro', image: 'assets/photos/costoprev.png', tags: ['BoldBrands', 'Branding', 'Logo', 'Charte Graphique', 'AI', 'PS'] },
+      { name: 'Costo Doro', file: 'assets/docs/costo doro.pdf',image: 'assets/photos/costoprev.png', tags: ['BoldBrands', 'Branding', 'Logo', 'Charte Graphique', 'AI', 'PS'] },
       { name: 'Hôtel le passage', image: 'assets/photos/charte.png', tags: ['Branding', 'Logo', 'Charte Graphique', 'AI', 'PS'] },
       { name: 'Site Hôtel', image: 'assets/photos/hotel le passage.png', tags: ['UI/UX', 'Figma', 'Prototype'] },
       { name: 'Site Agriculture', image: 'assets/photos/agriculture.png', tags: ['UI/UX', 'Figma', 'Prototype'] },
@@ -189,14 +181,15 @@ export class PortfolioComponent {
   }
 
   lightboxImage: string | null = null;
-  lightboxPdf: string | null = null;
+  lightboxPdf: SafeResourceUrl  | null = null;
 
-  openLightbox(img: string) {
+openLightbox(img: string) {
     this.lightboxImage = img;
     this.lightboxPdf = null;
   }
-  openPdfLightbox(pdfUrl: string) {
-    this.lightboxPdf = pdfUrl;
+
+  openPdfLightbox(pdfPath: string) {
+    this.lightboxPdf = this.sanitizer.bypassSecurityTrustResourceUrl(pdfPath);
     this.lightboxImage = null;
   }
 

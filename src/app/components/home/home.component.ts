@@ -9,5 +9,10 @@ import { CustomButtonComponent } from '../../tools/custom-button/custom-button.c
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  downloadCV() {
+  const link = document.createElement('a');
+  link.href = 'assets/docs/CV_Salim_Brahem.pdf';
+  link.download = 'CV_Salim_Brahem.pdf';
+  link.click();
+}
 }

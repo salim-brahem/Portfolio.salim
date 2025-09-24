@@ -31,4 +31,12 @@ export class AppComponent {
   link.click();
 }
 
+closeOverlay() {
+  const checkbox = document.getElementById('overlay-input') as HTMLInputElement;
+  if (checkbox) {
+    checkbox.checked = false; // ferme le menu mobile
+  }
+}
+
+
 }

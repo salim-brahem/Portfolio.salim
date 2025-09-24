@@ -55,6 +55,14 @@ description: 'Un passage radio enrichissant sur Radio Jeune Tunisie, où nous av
       date: '26 Novembre 2024',
 description: 'J’ai eu l’opportunité de participer à l’African ESG Summit, un événement majeur réunissant des experts, décideurs et acteurs engagés autour des thématiques Environnementales, Sociales et de Gouvernance (ESG). Cette expérience m’a permis d’assister à des conférences et panels de haut niveau, d’échanger avec des professionnels du secteur et de renforcer ma compréhension des enjeux liés au développement durable, à la responsabilité sociétale et à la gouvernance d’entreprise en Afrique.'
     }
+     ,
+    {
+  url: 'assets/galerie/odd17.png',
+  alt: 'Programme d’échange ODD17 en Turquie',
+  title: '#Programme International',
+date: '7 Juillet – 25 Août 2024, Eskişehir, Turquie',
+  description: 'J’ai pris part à un programme d’échange international à Eskişehir, Turquie, axé sur l’Objectif de Développement Durable n°17 (Partenariats pour la réalisation des objectifs). Cette expérience m’a permis de contribuer à des initiatives de coopération inter-organisationnelle, de renforcer mes compétences en prospection et en collaboration internationale, et de mieux comprendre le rôle des partenariats stratégiques dans le développement durable.'
+}
   ];
 
   currentIndex = 0;
